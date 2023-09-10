@@ -40,6 +40,15 @@ public class StudentStatistics
                 System.out.print("Enter the student " + (i+1) + " mark: ");
                 
                 mark = input.nextDouble();
+            //F3: showing an error message on the screen to the user with sufficient details of the error before allowing users to re-enter the mark.
+                if (mark < 0 || mark > 30) {
+                    System.out.println("Invalid marks! Please enter the marks between 0 and 30");
+                } 
                 
+            } while (mark < 0 || mark > 30);
+            
+             marks[i] = mark;
+        }
+    
 }
 }
