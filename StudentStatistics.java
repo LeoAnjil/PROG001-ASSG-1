@@ -24,10 +24,7 @@ public class StudentStatistics
         String assignmentName = input.nextLine();
         
        
-     
-    
-    
-    // F2:  Allows the user to input 30 student's marks for the assignment.
+        // F2:  Allows the user to input 30 student's marks for the assignment.
         double[] marks = new double[30]; 
         
         
@@ -40,7 +37,7 @@ public class StudentStatistics
                 System.out.print("Enter the student " + (i+1) + " mark: ");
                 
                 mark = input.nextDouble();
-            //F3: showing an error message on the screen to the user with sufficient details of the error before allowing users to re-enter the mark.
+                //F3: showing an error message on the screen to the user with sufficient details of the error before allowing users to re-enter the mark.
                 if (mark < 0 || mark > 30) {
                     System.out.println("Invalid marks! Please enter the marks between 0 and 30");
                 } 
@@ -49,6 +46,21 @@ public class StudentStatistics
             
              marks[i] = mark;
         }
+        
+         // F4:
+         System.out.println("Student Marks entered Successfully!");
+         System.out.println("Assignment Name: " + assignmentName);
+         System.out.println("Students' Entered Marks are given Below:");
+        
+        for (int i = 0; i < 30; i++) {
+            
+            System.out.println("Student "+ (i+1) + " Mark: " + marks[i]);
+        }             
+           
+
+         
+        
+     
+    }
     
-}
 }
