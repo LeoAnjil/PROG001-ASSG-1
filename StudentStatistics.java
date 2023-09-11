@@ -3,7 +3,7 @@
  * program to compute statistics of 'students' marks in an assignment.
  *
  * @author (Anjil Khadka)
- * @version (a version number or a date)
+ * @version (9/11/2023)
  */
 import java.util.*;
 /**
@@ -37,7 +37,9 @@ public class StudentStatistics
                 System.out.print("Enter the student " + (i+1) + " mark: ");
                 
                 mark = input.nextDouble();
+                
                 //F3: showing an error message on the screen to the user with sufficient details of the error before allowing users to re-enter the mark.
+                
                 if (mark < 0 || mark > 30) {
                     System.out.println("Invalid marks! Please enter the marks between 0 and 30");
                 } 
@@ -47,7 +49,7 @@ public class StudentStatistics
              marks[i] = mark;
         }
         
-         // F4:
+         // F4: Prints the assignment name following the 'students' marks after users have finished entering the marks.
          System.out.println("Student Marks entered Successfully!");
          System.out.println("Assignment Name: " + assignmentName);
          System.out.println("Students' Entered Marks are given Below:");
@@ -56,7 +58,7 @@ public class StudentStatistics
             
             System.out.println("Student "+ (i+1) + " Mark: " + marks[i]);
         }             
-           //F5: 
+           //F5: Prints the highest mark and the lowest mark on the screen.
            double highestMark = marks[0];
            double lowestMark = marks[0];
            
@@ -68,12 +70,34 @@ public class StudentStatistics
                  lowestMark = marks[i];
                 }
             }
+            
+            //F6:Calculates the mean and standard deviation of the marks and print the result on the screen.
+        
+        double total = 0.0;
+        for (double mark : marks) {
+            total += mark;
+        }
+
+        double mean = total / marks.length;
+        System.out.printf("Mean Mark: %.2f\n", mean);
+
+        double sumOfSquaredDifferences = 0.0;
+        for (double mark : marks) {
+            double difference = mark - mean;
+            sumOfSquaredDifferences += difference * difference;
+        }
+
+        double variance = sumOfSquaredDifferences / marks.length;
+        double standardDeviation = Math.sqrt(variance);
+
+        System.out.printf("Standard Deviation: %.2f\n", standardDeviation);
 
          
         
         //display the highest and lowest marks
         System.out.println("Students'Highest Mark is: " + highestMark);
         System.out.println("Students' Lowest Mark is: " + lowestMark);
+        
     }
     
 }
